@@ -1,0 +1,48 @@
+<!-- identicon -->
+<script src="lib/jdenticon-1.3.2.min.js"></script>
+<div class="main">
+    <div class="sidebar">
+
+        <div class="slack-name">
+            <h2>IMpermanence</h2>
+        </div>
+
+        <div class="channel-list">
+            <div class="list-head">Channels</div>
+            <div class="channel" ng-repeat="channel in messengerCtrl.channels">
+                <a ui-sref="messenger.messages({channelId: channel.$id})" ui-sref-active="selected"># {{ channel.name }}</a>
+            </div>
+            <div class="channel create">
+                <a ui-sref="messenger.create">+ create channel</a>
+            </div>
+
+            <div class="list-head">Direct Messages</div>
+            <div class="channel" ng-repeat="user in messengerCtrl.users">
+                <a ng-if="user.$id !== messengerCtrl.profile.$id" ui-sref="messenger.direct({uid: user.$id})" ui-sref-active="selected">
+                    <span class="presence" ng-class="{online: user.online}"></span> {{ user.displayName }}
+                </a>
+            </div>
+        </div>
+
+        <div class="my-info">
+            <!--            <img class="user-pic" ng-src="{{ messengerCtrl.getGravatar(messengerCtrl.profile.$id) }}" />-->
+            <canvas class="user-pic" width="80" height="80" data-jdenticon-hash="{{messengerCtrl.getGravatar(messengerCtrl.profile.$id)}}"></canvas>
+            <div class="user-info">
+                <div class="user-name">
+                    <span class="presence" ng-class="{online: messengerCtrl.profile.online}"></span> {{ messengerCtrl.profile.displayName }}
+                </div>
+
+                <div class="options">
+                    <a ui-sref="profile">edit profile</a> /
+                    <a href="#" ng-click="messengerCtrl.logout()">logout</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="message-pane">
+        <ui-view></ui-view>
+    </div>
+
+</div>
