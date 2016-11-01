@@ -1,2 +1,2 @@
 # IMpermanence
-secure and open source instant messaging
+private, secure and open source instant messaging
