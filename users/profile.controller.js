@@ -16,7 +16,7 @@ IMpermanenceApp.controller('ProfileCtrl', function ($state, $uibModal, md5, auth
 
     profileCtrl.launchDoodleModal = function () {
         var modalInstance = $uibModal.open({
-            templateUrl: '/auth/generateSeed.html',
+            templateUrl: 'auth/generateSeed.html',
             controller: 'SeedCtrl',
             controllerAs: 'seedCtrl',
             resolve: {}
