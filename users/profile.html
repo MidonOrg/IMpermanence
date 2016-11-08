@@ -2,8 +2,6 @@
     <div class="page-header">
         <h1>Edit Profile</h1>
     </div>
-    <button class="btn btn-default" ng-click="profileCtrl.launchDoodleModal()">Launch Doodle</button>
-    why is this page not updating!
     <!--    <button class="btn btn-default">Delete Account</button>This will remove all your previous messages and Channels.-->
     <!--<form ng-submit="profileCtrl.updateProfile()">
     <p ng-hide="profileCtrl.profile.displayName">
@@ -18,7 +16,45 @@
     <!--    {{profileCtrl.encrypted.toString()}}-->
     <!--    <br>{{profileCtrl.decrypted.toString()}}-->
     <!--    <br>{{profileCtrl.decryptedCleaned}}-->
+    <div class="panel">
+        <button class="btn btn-default" ng-click="profileCtrl.generateSymmetricKey()">Generate Symmetric Key</button>
+        <br> Symmetric Key: {{profileCtrl.symmetricKey}}
+        <br>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-6">
+                    <label>Plain String</label>
+                    <input type="text" class="form-control" ng-model="profileCtrl.plainText" />
+                    <button class="btn btn-default" ng-click="profileCtrl.encryptSymmetric()">Encrypt</button>
+                </div>
+                <div class="col-xs-6">
+                    <label>Encrypted String</label>
+                    <input type="text" class="form-control" ng-model="profileCtrl.encText" />
+                    <button class="btn btn-default" ng-click="profileCtrl.decryptSymmetric()">Decrypt</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <br>
     <br>
-    <br> {{profileCtrl.hash}}
+    <button class="btn btn-default" ng-click="profileCtrl.generateAsymmetricKey()">Generate Asymmetric Key</button>
+    <br> Public Key String: {{profileCtrl.asymmetricKey}}
+    <br>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6">
+                <label>Plain String</label>
+                <input type="text" class="form-control" ng-model="profileCtrl.AplainText" />
+                <button class="btn btn-default" ng-click="profileCtrl.encryptAsymmetric()">Encrypt</button>
+            </div>
+            <div class="col-xs-6">
+                <label>Encrypted String</label>
+                <input type="text" class="form-control" ng-model="profileCtrl.AencText" />
+                <button class="btn btn-default" ng-click="profileCtrl.decryptAsymmetric()">Decrypt</button>
+            </div>
+        </div>
+    </div>
 </div>
