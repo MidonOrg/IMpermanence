@@ -1,4 +1,4 @@
-IMpermanenceApp.controller('ProfileCtrl', function ($state, md5, auth, profile) {
+IMpermanenceApp.controller('ProfileCtrl', function ($state, $uibModal, md5, auth, profile) {
     var profileCtrl = this;
     profileCtrl.profile = profile;
     profileCtrl.username = '';
@@ -13,5 +13,14 @@ IMpermanenceApp.controller('ProfileCtrl', function ($state, md5, auth, profile) 
     profileCtrl.encrypted = CryptoJS.AES.encrypt("This is a test message to check encryption.", "Secret Passphrase");
     profileCtrl.decrypted = CryptoJS.AES.decrypt(profileCtrl.encrypted, "Secret Passphrase");
     profileCtrl.decryptedCleaned = profileCtrl.decrypted.toString(CryptoJS.enc.Utf8);
+
+    profileCtrl.launchDoodleModal = function () {
+        var modalInstance = $uibModal.open({
+            templateUrl: '/auth/generateSeed.html',
+            controller: 'SeedCtrl',
+            controllerAs: 'seedCtrl',
+            resolve: {}
+        });
+    };
 
 });

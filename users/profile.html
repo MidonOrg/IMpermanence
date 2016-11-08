@@ -2,6 +2,7 @@
     <div class="page-header">
         <h1>Edit Profile</h1>
     </div>
+    <button class="btn btn-default" ng-click="profileCtrl.launchDoodleModal()">Launch Doodle</button>
     <button class="btn btn-default">Delete Account</button>This will remove all your previous messages and Channels.
     <!--<form ng-submit="profileCtrl.updateProfile()">
     <p ng-hide="profileCtrl.profile.displayName">
@@ -16,4 +17,6 @@
     {{profileCtrl.encrypted.toString()}}
     <br>{{profileCtrl.decrypted.toString()}}
     <br>{{profileCtrl.decryptedCleaned}}
+    <br>
+    <br>
 </div>
