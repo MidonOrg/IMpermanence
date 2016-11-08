@@ -1,8 +1,8 @@
 IMpermanenceApp.service("DoodleHash", function ($uibModal, $q) {
     this.Hash = '';
-    var deferred = $q.defer();
 
     this.getHashFromUser = function () {
+        var deferred = $q.defer();
         var modalInstance = $uibModal.open({
             templateUrl: 'auth/generateSeed.html',
             controller: 'SeedCtrl',

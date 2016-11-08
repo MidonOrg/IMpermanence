@@ -25,6 +25,7 @@
     </div>
 </div>
 <div class="modal-footer">
-    <button class="btn btn-primary" ng-click="seedCtrl.ok()">OK</button>
+    <p ng-show="seedCtrl.NotAcceptableDoodle()">Doodle More!</p>
+    <input type="submit" class="btn btn-primary" ng-click="seedCtrl.ok()" value="Ok" ng-disabled="seedCtrl.NotAcceptableDoodle()" />
     <button class="btn btn-Warning" ng-click="seedCtrl.cancel()">Cancel</button>
 </div>

@@ -2,7 +2,7 @@ IMpermanenceApp.controller('ProfileCtrl', function ($state, $uibModal, md5, auth
     var profileCtrl = this;
     profileCtrl.profile = profile;
     profileCtrl.username = '';
-    profileCtrl.hash = DoodleHash.Hash;
+    profileCtrl.hash = '';
 
     profileCtrl.updateProfile = function () {
         profileCtrl.profile.emailHash = md5.createHash(auth.email);

@@ -31,7 +31,13 @@ IMpermanenceApp.controller('SeedCtrl', function ($uibModalInstance) {
         }
     };
 
+    seedCtrl.NotAcceptableDoodle = function () {
+        if (seedCtrl.Input.length < 1000)
+            return true;
+        return false;
+    };
+
     seedCtrl.Hash = function () {
-        return CryptoJS.MD5(seedCtrl.Input.toString());
+        return CryptoJS.SHA512(seedCtrl.Input.toString());
     }
 });
