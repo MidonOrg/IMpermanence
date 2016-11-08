@@ -1,7 +1,8 @@
-IMpermanenceApp.controller('ProfileCtrl', function ($state, $uibModal, md5, auth, profile) {
+IMpermanenceApp.controller('ProfileCtrl', function ($state, $uibModal, md5, auth, profile, DoodleHash) {
     var profileCtrl = this;
     profileCtrl.profile = profile;
     profileCtrl.username = '';
+    profileCtrl.hash = DoodleHash.Hash;
 
     profileCtrl.updateProfile = function () {
         profileCtrl.profile.emailHash = md5.createHash(auth.email);
@@ -15,11 +16,8 @@ IMpermanenceApp.controller('ProfileCtrl', function ($state, $uibModal, md5, auth
     profileCtrl.decryptedCleaned = profileCtrl.decrypted.toString(CryptoJS.enc.Utf8);
 
     profileCtrl.launchDoodleModal = function () {
-        var modalInstance = $uibModal.open({
-            templateUrl: 'auth/generateSeed.html',
-            controller: 'SeedCtrl',
-            controllerAs: 'seedCtrl',
-            resolve: {}
+        DoodleHash.getHashFromUser().then(function (hash) {
+            profileCtrl.hash = hash;
         });
     };
 

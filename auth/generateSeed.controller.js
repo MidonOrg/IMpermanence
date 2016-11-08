@@ -8,7 +8,7 @@ IMpermanenceApp.controller('SeedCtrl', function ($uibModalInstance) {
 
 
     seedCtrl.ok = function () {
-        $uibModalInstance.close($ctrl.selected.item);
+        $uibModalInstance.close(seedCtrl.Hash().toString());
     };
 
     seedCtrl.cancel = function () {
@@ -32,6 +32,6 @@ IMpermanenceApp.controller('SeedCtrl', function ($uibModalInstance) {
     };
 
     seedCtrl.Hash = function () {
-        alert(CryptoJS.MD5(seedCtrl.Input.toString()));
+        return CryptoJS.MD5(seedCtrl.Input.toString());
     }
 });
